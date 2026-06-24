@@ -41,7 +41,7 @@ echo "✅ PostgreSQL is ready."
 
 # Push schema directly to DB (creates tables if they don't exist)
 echo "🔧 Pushing database schema..."
-npx prisma db push --skip-generate
+npx prisma db push --accept-data-loss
 
 echo "🚗 Starting MyGarage API..."
 exec node dist/server.js
