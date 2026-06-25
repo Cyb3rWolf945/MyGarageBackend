@@ -1,5 +1,6 @@
-import { Router } from 'express';
+import { Router, Response } from 'express';
 import multer from 'multer';
+import { MulterRequest } from '../types';
 import { authMiddleware } from '../middleware/auth';
 import * as imagesController from '../controllers/images.controller';
 
@@ -23,7 +24,7 @@ router.post(
   '/upload',
   authMiddleware,
   upload.single('image'),
-  imagesController.upload
+  (req: MulterRequest, res: Response) => imagesController.upload(req, res)
 );
 
 export default router;
