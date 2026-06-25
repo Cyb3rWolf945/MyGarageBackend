@@ -24,27 +24,6 @@ export async function getProfile(
  * PATCH /api/user/profile
  * Updates authenticated user's profile (name, garageName, avatarUrl).
  */
-/**
- * DELETE /api/user/account
- * Permanently deletes the authenticated user's account and all data.
- */
-export async function deleteAccount(
-  req: AuthenticatedRequest,
-  res: Response,
-  next: NextFunction
-): Promise<void> {
-  try {
-    const userId = req.user.userId;
-    const result = await userService.deleteUserAccount(userId);
-    res.status(200).json(result);
-  } catch (err) {
-    next(err);
-  }
-}
-/**
- * PATCH /api/user/profile
- * Updates authenticated user's profile (name, garageName, avatarUrl).
- */
 export async function updateProfile(
   req: AuthenticatedRequest,
   res: Response,
