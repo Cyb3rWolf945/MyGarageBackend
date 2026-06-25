@@ -20,11 +20,6 @@ const upload = multer({
   },
 });
 
-router.post(
-  '/upload',
-  authMiddleware,
-  upload.single('image'),
-  (req: MulterRequest, res: Response) => imagesController.upload(req, res)
-);
+(router.post as any)('/upload', authMiddleware, upload.single('image'), imagesController.upload);
 
 export default router;
