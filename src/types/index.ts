@@ -10,6 +10,11 @@ export interface AuthenticatedRequest extends Request {
   user: JwtPayload;
 }
 
+// ── Multer file upload request ────────────────────────────────
+export interface MulterRequest extends AuthenticatedRequest {
+  file?: any;
+}
+
 // ── Sync Push body shapes ─────────────────────────────────────
 export interface VehiclePayload {
   id: string; // UUID
